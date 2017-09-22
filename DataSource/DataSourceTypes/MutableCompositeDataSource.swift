@@ -34,7 +34,7 @@ public final class MutableCompositeDataSource: DataSource {
 		(self.changes, self.observer) = Signal<DataChange, NoError>.pipe()
 		self._innerDataSources = MutableProperty(inner)
 		self.disposable += self._innerDataSources.producer
-			.flatMap(.latest, transform: changesOfInnerDataSources)
+			.flatMap(.latest, changesOfInnerDataSources)
 			.start(self.observer)
 	}
 
