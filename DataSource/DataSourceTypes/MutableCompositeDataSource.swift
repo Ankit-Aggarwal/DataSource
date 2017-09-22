@@ -21,7 +21,7 @@ import Result
 public final class MutableCompositeDataSource: DataSource {
 
 	public let changes: Signal<DataChange, NoError>
-	fileprivate let observer: Observer<DataChange, NoError>
+	fileprivate let observer: Signal<DataChange, NoError>.Observer
 	fileprivate let disposable = CompositeDisposable()
 
 	fileprivate let _innerDataSources: MutableProperty<[DataSource]>
